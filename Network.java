@@ -77,7 +77,7 @@ public class Network {
      * or if the "follows" addition failed for some reason, returns false.
      */
     public boolean addFollowee(String name1, String name2) {
-        if (getUser(name1) == null || getUser(name2) == null) {
+        if (getUser(name1) == null || getUser(name2) == null || name1.equals(name2)) {
             return false;
         }
         if (getUser(name1).addFollowee(name2) == true) {
@@ -114,6 +114,9 @@ public class Network {
      */
     public String mostPopularUser() {
         User mostPop = null;
+        if (userCount == 0) {
+            return null;
+        }
         int max = 0;
         for (int i = 0; i < this.userCount; i++) {
             if (max < followeeCount(this.users[i].getName())) {
