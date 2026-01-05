@@ -77,7 +77,7 @@ public class Network {
         if (getUser(name1) == null || getUser(name2) == null) {
             return false;
         }
-        if (getUser(name2).addFollowee(name1) == true && getUser(name1).addFollowee(name2) == true) {
+        if (getUser(name1).addFollowee(name2) == true) {
             return true;
         } else {
             return false;
@@ -145,7 +145,7 @@ public class Network {
         }
         for (int i = 0; i < this.userCount; i++) {
             User current = this.users[i];
-            ans = ans + current.getName() + " ->";
+            ans = ans + current.getName() + " -> ";
             for (int j = 0; j < current.getfCount(); j++) {
                 ans = ans + " " + current.getfFollows()[j];
             }
