@@ -54,6 +54,8 @@ public class Network {
      * network, and returns true.
      */
     public boolean addUser(String name) {
+        if (name == null)
+            return false;
         if (this.users.length == userCount)
             return false;
         if (getUser(name) != null)
@@ -61,6 +63,7 @@ public class Network {
         else {
             User addNew = new User(name);
             this.users[userCount] = addNew;
+            userCount++;
             return true;
 
         }
@@ -147,7 +150,7 @@ public class Network {
             User current = this.users[i];
             ans = ans + current.getName() + " -> ";
             for (int j = 0; j < current.getfCount(); j++) {
-                ans = ans + " " + current.getfFollows()[j];
+                ans = ans + current.getfFollows()[j] + " ";
             }
             if (i < this.userCount - 1) {
                 ans = ans + "\n";
