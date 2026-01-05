@@ -145,7 +145,7 @@ public class Network {
         }
         for (int i = 0; i < this.userCount; i++) {
             User current = this.users[i];
-            ans = ans + current.getName() + " -> ";
+            ans = ans + current.getName() + " ->";
             for (int j = 0; j < current.getfCount(); j++) {
                 ans = ans + " " + current.getfFollows()[j];
             }
